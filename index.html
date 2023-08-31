@@ -15,30 +15,38 @@
   </head>
   <body>
     <header>
-      <h1>The Unofficially Official:</h1>
-      <h2>Rock, Paper, Scissors</h2>
-      <h2>Arena</h2>
-      <br />
-      <h3>Choose your weapon!</h3>
+      <div class="score-tracker">
+        <div class="player-score-container">
+          <h2>Player Score:<span id="player-score-value"> 0</span></h2>
+        </div>
+        <div class="computer-score-container">
+          <h2>Computer Score:<span id="player-score-value"> 0</span></h2>
+        </div>
+      </div>
+
+      <div class="header-container">
+        <img
+          alt="Colosseum SVG icon courtesy of https://uxwing.com/license/"
+          src="https://uxwing.com/wp-content/themes/uxwing/download/flags-landmarks/colosseum-icon.png"
+        />
+        <h1>The Unofficially "Official":</h1>
+        <h2>Rock, Paper, Scissors Colosseum</h2>
+      </div>
     </header>
     <main>
+      <div>
+        <h3 id="button-header-text">Choose your weapon!</h3>
+      </div>
       <div class="button-container">
         <button type="button" id="rock"><span>Rock 🪨</span></button>
         <button type="button" id="paper"><span>Paper 📄</span></button>
         <button type="button" id="scissors"><span>Scissors ✂️</span></button>
       </div>
-    </main>
-    <section class="score-container">
-      <div class="score-tracker">
-        <div class="player-score-container">
-          <h2>Player Score:</h2>
-          <h3 class="player-score-value">0</h3>
-        </div>
-        <div class="computer-score-container">
-          <h2>Computer Score:</h2>
-          <h3 class="computer-score-value">0</h3>
-        </div>
+
+      <div class="results-container">
+        <div>Computer chose:</div>
+        <div>Player chose:</div>
       </div>
-    </section>
+    </main>
   </body>
 </html>

@@ -1,6 +1,9 @@
 let computerWinCount = 0;
 let playerWinCount = 0;
+
 const buttons = document.querySelectorAll("button");
+const playerScore = document.getElementById("player-score-value");
+const computerScore = document.getElementById("computer-score-value");
 
 function getComputerChoice() {
   const choiceArr = ["ROCK", "PAPER", "SCISSORS"];

@@ -38,14 +38,21 @@
         <h3 id="button-header-text">Choose your weapon!</h3>
       </div>
       <div class="button-container">
-        <button type="button" id="rock"><span>Rock 🪨</span></button>
-        <button type="button" id="paper"><span>Paper 📄</span></button>
-        <button type="button" id="scissors"><span>Scissors ✂️</span></button>
+        <button type="button" id="rock"><span>Rock</span></button>
+        <button type="button" id="paper"><span>Paper</span></button>
+        <button type="button" id="scissors"><span>Scissors</span></button>
       </div>
 
       <div class="results-container">
-        <div>Computer chose:</div>
-        <div>Player chose:</div>
+        <div id="computer-round-status">
+          <span>Computer chose:</span>
+          <span id="computer-choice"></span>
+        </div>
+        <div id="player-round-status">
+          <span>Player chose:</span>
+          <span id="player-choice"></span>
+        </div>
+        <div id="round-winner-element"></div>
       </div>
     </main>
   </body>

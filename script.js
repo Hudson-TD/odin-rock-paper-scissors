@@ -1,9 +1,13 @@
+const buttons = document.querySelectorAll("button");
+
+let resultsDiv = document.querySelector("#round-winner-element");
+let playerScore = document.querySelector("#player-score-value");
+let computerScore = document.querySelector("#computer-score-value");
+let computerChoiceText = document.getElementById("computer-choice");
+let playerChoiceText = document.getElementById("player-choice");
+
 let computerWinCount = 0;
 let playerWinCount = 0;
-
-const buttons = document.querySelectorAll("button");
-const playerScore = document.getElementById("player-score-value");
-const computerScore = document.getElementById("computer-score-value");
 
 function getComputerChoice() {
   const choiceArr = ["ROCK", "PAPER", "SCISSORS"];
@@ -13,46 +17,42 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-  console.log(`Player's Choice ${playerSelection}`);
-  console.log(`Computer's Choice ${computerSelection}`);
+  computerChoiceText.innerText = `${computerSelection}`;
+  playerChoiceText.innerText = `${playerSelection}`;
 
   if (playerSelection === "ROCK" && computerSelection === "SCISSORS") {
-    console.log(
-      `Computer chose ${computerSelection}, ${playerSelection} WINS.`
-    );
+    resultsDiv.innerText = `Computer chose ${computerSelection}, ${playerSelection} WINS.`;
     playerWinCount += 1;
+    playerScore.innerText = `${playerWinCount}`;
   } else if (playerSelection === "ROCK" && computerSelection === "PAPER") {
-    console.log(
-      `Computer chose ${computerSelection}, ${playerSelection} LOSES.`
-    );
+    resultsDiv.innerText = `Computer chose ${computerSelection}, ${playerSelection} LOSES.`;
     computerWinCount += 1;
+    computerScore.innerText = `${computerWinCount}`;
   } else if (playerSelection === "ROCK" && computerSelection === "ROCK") {
-    console.log(`Everyone chose "ROCK", this match is a tie.`);
+    resultsDiv.innerText = `Everyone chose ROCK, this match is a tie.`;
   } else if (playerSelection === "PAPER" && computerSelection === "ROCK") {
-    console.log(
-      `Computer chose ${computerSelection}, ${playerSelection} WINS.`
-    );
+    resultsDiv.innerText = `Computer chose ${computerSelection}, ${playerSelection} WINS.`;
     playerWinCount += 1;
+    playerScore.innerText = `${playerWinCount}`;
   } else if (playerSelection === "PAPER" && computerSelection === "SCISSORS") {
-    console.log(
-      `Computer chose ${computerSelection}, ${playerSelection} LOSES.`
-    );
+    resultsDiv.innerText = `Computer chose ${computerSelection}, ${playerSelection} LOSES.`;
     computerWinCount += 1;
+    computerScore.innerText = `${computerWinCount}`;
   } else if (playerSelection === "PAPER" && computerSelection === "PAPER") {
-    console.log(`Everyone chose "PAPER", this match is a tie.`);
+    resultsDiv.innerText = `Everyone chose PAPER, this match is a tie.`;
   } else if (playerSelection === "SCISSORS" && computerSelection === "PAPER") {
-    console.log(`Computer chose ${computerSelection}, ${playerSelection} WIN.`);
+    resultsDiv.innerText = `Computer chose ${computerSelection}, ${playerSelection} WIN.`;
     playerWinCount += 1;
+    playerScore.innerText = `${playerWinCount}`;
   } else if (playerSelection === "SCISSORS" && computerSelection === "ROCK") {
-    console.log(
-      `Computer chose ${computerSelection}, ${playerSelection} LOSES.`
-    );
+    resultsDiv.innerText = `Computer chose ${computerSelection}, ${playerSelection} LOSES.`;
     computerWinCount += 1;
+    computerScore.innerText = `${computerWinCount}`;
   } else if (
     playerSelection === "SCISSORS" &&
     computerSelection === "SCISSORS"
   ) {
-    console.log(`Everyone chose "SCISSORS", this match is a tie.`);
+    resultsDiv.innerText = `Everyone chose SCISSORS, this match is a tie.`;
   }
 }
 
@@ -64,7 +64,6 @@ function resetScore() {
 buttons.forEach((button) => {
   button.addEventListener("click", (e) => {
     let choice = e.target.innerText.toUpperCase();
-    resetScore();
     playRound(choice, getComputerChoice());
   });
 });

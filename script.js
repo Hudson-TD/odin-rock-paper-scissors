@@ -20,38 +20,44 @@ function playRound(playerSelection, computerSelection) {
   document.getElementById("player-choice").innerText = `${playerSelection}`;
 
   if (playerSelection === "ROCK" && computerSelection === "SCISSORS") {
-    resultsDiv.innerText = `Computer chose ${computerSelection}, ${playerSelection} WINS.`;
+    resultsDiv.innerText = `Match Winner: Player`;
     playerWinCount++;
     playerScore.innerText = playerWinCount;
   } else if (playerSelection === "ROCK" && computerSelection === "PAPER") {
-    resultsDiv.innerText = `Computer chose ${computerSelection}, ${playerSelection} LOSES.`;
+    resultsDiv.innerText = `Match Winner: Computer`;
     computerWinCount++;
     computerScore.innerText = computerWinCount;
   } else if (playerSelection === "ROCK" && computerSelection === "ROCK") {
-    resultsDiv.innerText = `Everyone chose ROCK, this match is a tie.`;
+    resultsDiv.innerText = `This match is a tie.`;
   } else if (playerSelection === "PAPER" && computerSelection === "ROCK") {
-    resultsDiv.innerText = `Computer chose ${computerSelection}, ${playerSelection} WINS.`;
+    resultsDiv.innerText = `Match Winner: Player`;
     playerWinCount++;
     playerScore.innerText = playerWinCount;
   } else if (playerSelection === "PAPER" && computerSelection === "SCISSORS") {
-    resultsDiv.innerText = `Computer chose ${computerSelection}, ${playerSelection} LOSES.`;
+    resultsDiv.innerText = `Match Winner: Computer`;
     computerWinCount++;
     computerScore.innerText = computerWinCount;
   } else if (playerSelection === "PAPER" && computerSelection === "PAPER") {
-    resultsDiv.innerText = `Everyone chose PAPER, this match is a tie.`;
+    resultsDiv.innerText = `This match is a tie.`;
   } else if (playerSelection === "SCISSORS" && computerSelection === "PAPER") {
-    resultsDiv.innerText = `Computer chose ${computerSelection}, ${playerSelection} WIN.`;
+    resultsDiv.innerText = `Match Winner: Player`;
     playerWinCount++;
     playerScore.innerText = playerWinCount;
   } else if (playerSelection === "SCISSORS" && computerSelection === "ROCK") {
-    resultsDiv.innerText = `Computer chose ${computerSelection}, ${playerSelection} LOSES.`;
+    resultsDiv.innerText = `Match Winner: Computer`;
     computerWinCount++;
     computerScore.innerText = computerWinCount;
   } else if (
     playerSelection === "SCISSORS" &&
     computerSelection === "SCISSORS"
   ) {
-    resultsDiv.innerText = `Everyone chose SCISSORS, this match is a tie.`;
+    resultsDiv.innerText = `This match is a tie.`;
+  }
+
+  if (playerWinCount === 5) {
+    confirm("Champion: Player").then(window.location.reload());
+  } else if (computerWinCount === 5) {
+    confirm("Champion: Computer").then(window.location.reload());
   }
 }
 
@@ -65,7 +71,6 @@ buttons.forEach((button) => {
     let choice = e.target.value;
     console.log(choice);
     console.log(typeof choice);
-
     playRound(choice, getComputerChoice());
   });
 });

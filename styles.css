@@ -1,10 +1,16 @@
 * {
   font-family: "Poppins", sans-serif;
 }
+
 img {
   margin-top: 40px;
   width: 100px;
   height: 100px;
+}
+
+p {
+  text-align: center;
+  width: 550px;
 }
 
 .header-container {
@@ -60,10 +66,9 @@ span {
 .results-container {
   display: flex;
   flex: 1;
-  flex-direction: column;
   gap: 30px;
   margin-top: 50px;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 
@@ -76,8 +81,13 @@ span {
 }
 
 #round-winner-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
   color: midnightblue;
-  font-size: 25px;
+  font-size: 30px;
+  font-weight: 600;
 }
 
 button:hover {

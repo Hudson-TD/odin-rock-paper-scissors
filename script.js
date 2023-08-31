@@ -1,5 +1,6 @@
 let computerWinCount = 0;
 let playerWinCount = 0;
+const buttons = document.querySelectorAll("button");
 
 function getComputerChoice() {
   const choiceArr = ["ROCK", "PAPER", "SCISSORS"];
@@ -8,17 +9,7 @@ function getComputerChoice() {
   return choiceArr[randomNumber];
 }
 
-function getPlayerChoice() {
-  let promptField = window.prompt(`Choose your weapon:
-    ROCK
-    PAPER
-    SCISSORS`);
-
-  let choice = promptField.toUpperCase();
-  return choice;
-}
-
-function playSingleRound(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) {
   console.log(`Player's Choice ${playerSelection}`);
   console.log(`Computer's Choice ${computerSelection}`);
 
@@ -62,44 +53,15 @@ function playSingleRound(playerSelection, computerSelection) {
   }
 }
 
-function game() {
-  let playerSelection = getPlayerChoice();
-  let computerSelection = getComputerChoice();
-
-  playSingleRound(playerSelection, computerSelection);
-
-  console.log(
-    `CURRENT SCORE  Player: ${playerWinCount} | Computer: ${computerWinCount}`
-  );
-}
-
 function resetScore() {
   computerWinCount = 0;
   playerWinCount = 0;
 }
 
-function bestOfFive() {
-  resetScore();
-
-  for (let i = 1; i <= 5; i++) {
-    console.log();
-    console.log(`%c ROUND ${i}`, "font-size: 20px; font-weight: bold");
-    game();
-  }
-
-  if (playerWinCount > computerWinCount) {
-    window.alert(
-      `YOU WIN! Player Score: ${playerWinCount} | Computer Score: ${computerWinCount}`
-    );
-  } else if (computerWinCount > playerWinCount) {
-    window.alert(
-      `YOU LOSE! Computer Score: ${computerWinCount} | Player Score: ${playerWinCount}`
-    );
-  } else {
-    window.alert(
-      `WE HAVE A TIE... Computer Score: ${computerWinCount} | Player Score: ${playerWinCount}`
-    );
-  }
-}
-
-bestOfFive();
+buttons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    let choice = e.target.innerText.toUpperCase();
+    resetScore();
+    playRound(choice, getComputerChoice());
+  });
+});

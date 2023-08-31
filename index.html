@@ -11,16 +11,17 @@
       href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
     />
-    <script src="script.js" defer></script>
   </head>
   <body>
     <header>
       <div class="score-tracker">
         <div class="player-score-container">
-          <h2>Player Score:<span id="player-score-value"> 0</span></h2>
+          <h2>Player Score:</h2>
+          <h3 id="player-score-value"></h3>
         </div>
         <div class="computer-score-container">
-          <h2>Computer Score:<span id="player-score-value"> 0</span></h2>
+          <h2>Computer Score:</h2>
+          <h3 id="computer-score-value"></h3>
         </div>
       </div>
 
@@ -38,9 +39,9 @@
         <h3 id="button-header-text">Choose your weapon!</h3>
       </div>
       <div class="button-container">
-        <button type="button" id="rock"><span>Rock</span></button>
-        <button type="button" id="paper"><span>Paper</span></button>
-        <button type="button" id="scissors"><span>Scissors</span></button>
+        <button type="button" id="rock" value="ROCK">Rock</button>
+        <button type="button" id="paper" value="PAPER">Paper</button>
+        <button type="button" id="scissors" value="SCISSORS">Scissors</button>
       </div>
 
       <div class="results-container">
@@ -55,5 +56,6 @@
         <div id="round-winner-element"></div>
       </div>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>

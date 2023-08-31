@@ -1,0 +1,39 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+header {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+button {
+    width: 200px;
+    height: 200px
+}
+
+span {
+    font-size: 20px;
+}
+
+.score-tracker {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    gap:125px;
+}
+
+.player-score-value, .computer-score-value {
+    text-align: center;
+}
